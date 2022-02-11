@@ -1,0 +1,32 @@
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { getTopics } from '../utils/api';
+
+
+const TopicsList = () => {
+    const [topics, setTopics] = useState([]);
+
+    useEffect(() => {
+        getTopics().then((res) => {
+            console.log(res)
+            setTopics(res)
+            
+        })
+    },[])
+
+    return (
+        
+        <ul>
+            {topics.map((topic)=> {
+                return (
+                    <Link key={topic.slug} to={`/api/articles?topic=${topic.slug}`}>
+                        <li>{topic.slug}</li>
+                        </Link>
+                )
+
+            })}
+        </ul>
+    )
+}
+
+export default TopicsList;
