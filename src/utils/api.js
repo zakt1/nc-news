@@ -28,14 +28,13 @@ export const getSingleArticle = (article_id) => {
 export const getArticleComments = (article_id) => {
     return newsApi.get(`/api/articles/${article_id}/comments`)
     .then((res) => {
-        console.log(res, '<< getArticleComments api response afterFetch')
         return res.data.article
     })
 }
 
 export const getTopics = () => {
     return newsApi.get(`/api/topics`).then((res) => {
-        console.log(res.data.topics, '<< getTopics api response')
+        
         return res.data.topics
         
     })

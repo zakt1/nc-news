@@ -9,13 +9,10 @@ import Users, { UserProvider } from "./contexts/User"
 import { UserContext} from "./contexts/User"
 
 function App() {
-  // const [loggedInUser, setLoggedInUser] = useState({
-  //   username: 'jessjelly'
-  // });
+  
   console.log('displaying app.js')
   return (
   <BrowserRouter>
-  {/* <UserContext.Provider value={{ loggedInUser, setLoggedInUser, isLoggedIn }}> */}
   <UserProvider>
     <div className='app'>
         <Nav />
@@ -29,7 +26,7 @@ function App() {
 
           </Routes>
     </div>
-    {/* </UserContext.Provider> */}
+
     </UserProvider>
   </BrowserRouter>
 

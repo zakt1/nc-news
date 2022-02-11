@@ -23,7 +23,7 @@ const SingleArticle = () => {
 
     const [deleteCom, setDeleteCom] =useState()
     
-    const [commentMatch, setCommentMatch] = useState(false)
+    // const [commentMatch, setCommentMatch] = useState(false)
 
     useEffect(() => {
         getSingleArticle(article_id).then((res) => {
@@ -52,6 +52,7 @@ const SingleArticle = () => {
             <h3>posted {singleArticle.created_at}</h3>
             <p> {singleArticle.body}</p>
             <h4>comments: {singleArticle.comment_count}</h4>
+
             {/* <h5>{articleComments[0].author}</h5> */}
 
             <ul>

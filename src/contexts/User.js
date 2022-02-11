@@ -9,13 +9,13 @@ export const UserProvider = (props) => {
     const [loggedInUser, setLoggedInUser] = useState({
         username: 'jessjelly'
       });
-    const logOutObj = null
-
-      const isLoggedIn = loggedInUser.username !== null
-    
+    const logOutObj = {
+        username: undefined
+      };
+      const isLoggedIn = loggedInUser.username !== undefined
+      console.log(loggedInUser, '<< User.js loggedInUser')
+      console.log(isLoggedIn, '<<< isLoggedIn')
       if (isLoggedIn){
-          
-      }
       return (
         <UserContext.Provider value={{ loggedInUser, setLoggedInUser, isLoggedIn }}>
         {props.children}
@@ -30,4 +30,17 @@ export const UserProvider = (props) => {
             alt={loggedInUser.username}></img> */}
         </UserContext.Provider>
       )
+          
+      }else{
+        return (
+            <UserContext.Provider value={{ loggedInUser, setLoggedInUser, isLoggedIn }}>
+            {props.children}
+            {console.log(props.children, '<< User.js props.children')}
+            <span>User: {'not logged in'}</span>
+            <button onClick={() => setLoggedInUser({username: 'jessjelly'})}> Log me in</button>
+    
+            <button onClick={()=> setLoggedInUser(logOutObj)}> Log me out</button>
+            </UserContext.Provider>
+        )
+      }
 }
