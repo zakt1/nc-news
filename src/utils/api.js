@@ -41,5 +41,25 @@ export const getTopics = () => {
 }
 
 
+
+export const postComment = (article_id, reqBody) => {
+    console.log(reqBody, '<<, reqBody api')
+
+    return newsApi
+    .post(`/api/articles/${article_id}/comments`, reqBody)
+    .then((res) => {
+        console.log(res.data, '<< res.data.comment')
+        return res.data
+    })
+}
+
+export const deleteComment = (article_id, comment_id) => {
+    console.log(article_id, '<<< api delete article_id')
+    console.log(comment_id, '<<< api delete comment_id')
+    
+    return newsApi
+    .delete(`/api/articles/${article_id}/${comment_id}`)
+}
+
 //html select tag 
 // bootstrap
