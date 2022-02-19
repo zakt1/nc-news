@@ -12,9 +12,7 @@ const Votes = ({ votes, articleId }) => {
 
     return (
         <div>
-            <a key={articleId}>{votes + voteChange}</a>
-        <button onClick={() => changeVotes(1)}>Upvotez</button>
-        <button onClick={() => changeVotes(-1)}>DownVotez</button>
+            <a key={articleId}>{votes + voteChange}</a> <button onClick={() => changeVotes(1)}>👍 Real Newz</button>   <button onClick={() => changeVotes(-1)}>👎 Fake News</button>
         </div>
         )
 }

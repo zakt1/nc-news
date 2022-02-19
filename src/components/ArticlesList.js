@@ -32,7 +32,7 @@ const ArticlesList = () => {
                         {/* <a key={article.id}>{article.votes}</a> */}
 
                         <Link key={article.article_id} to={`/api/articles/${article.article_id}`}>
-                        <li>{article.title} {article.author}</li> 
+                        <li>{article.title}  - {article.author}</li> 
                         </Link>
                         <Votes votes={article.votes} articleId={article.article_id} />
 

@@ -8,6 +8,7 @@ import { UserContext } from '../contexts/User';
 import axios from 'axios';
 import ArticleCommentsList from './ArticleCommentsList';
 import Votes from './Votes';
+import DeleteComment from './DeleteComment';
 
 
 const SingleArticle = (props) => {
@@ -15,13 +16,13 @@ const SingleArticle = (props) => {
 
 
     const { loggedInUser, setLoggedInUser, isLoggedIn  } = useContext(UserContext)
-    console.log(loggedInUser, '<< singleArticle context loggedInUser')
-    console.log(setLoggedInUser, '<< setLoggedInUser')
-    console.log(isLoggedIn, '<< isLoggedIn')
+    // console.log(loggedInUser, '<< singleArticle context loggedInUser')
+    // console.log(setLoggedInUser, '<< setLoggedInUser')
+    // console.log(isLoggedIn, '<< isLoggedIn')
     
     
     const { article_id }= useParams()
-    console.log(article_id,'<< article_id params SingArticle')
+    // console.log(article_id,'<< article_id params SingArticle')
     getTopics().then((res) =>{
         // console.log(res, '<< getTopics response')
     })
@@ -41,23 +42,7 @@ const SingleArticle = (props) => {
         })
     }, [article_id])
     
-    const [deleteComId, setDeleteComId] =useState(0)
-    console.log(deleteComId,'<< deletecomId')
-
-    const deleteComById = (event, props) => {
-
-        console.log(deleteComId,'<< deleteComBYId deleteComId')
-        // const comId = commIdData.commentID
-        // console.log(comId,'<< deleteComId comId')
-        console.log(article_id,'<< deleteComId article_id')
-        deleteComment(article_id, deleteComId)
-        .then((res) => {
-            console.log(res, '<< deleteComById response')
-        })
-
-    }
-    
-    // POST comment handling -------------------------------------- ---------------------------
+    // POST comment  -------------------------------------- ---------------------------
     
     const [formValue, setFormValue] = useState({
         username: loggedInUser.username,
@@ -83,17 +68,17 @@ const SingleArticle = (props) => {
                 setComments(res)
             })
         }, [article_id])
-        console.log(articleComments, '<< articleComments after setState')
+        // console.log(articleComments, '<< articleComments after setState')
 
     const commData = new FormData()
     commData.append("username", formValue.username)
     commData.append("body", formValue.body)
-    console.log(formValue, '<<handleSubmit formValue2')
+    // console.log(formValue, '<<handleSubmit formValue2')
     
     const handleSubmit = (event, props) => {
         event.preventDefault()
         
-        console.log(formValue, '<<handleSubmit formValue1')
+        // console.log(formValue, '<<handleSubmit formValue1')
         // console.log(commData, '<<handleSubmit commData')
         
         if (isLoggedIn){
@@ -123,7 +108,9 @@ const SingleArticle = (props) => {
 
             <h1>{singleArticle.title} </h1>
             <h2>author: {singleArticle.author}</h2>
-            <h2>votes: {singleArticle.votes}</h2>
+            <h2>votes:
+            <Votes votes={singleArticle.votes} articleId={singleArticle.article_id} />
+            </h2>
             <h3>posted {singleArticle.created_at}</h3>
             <p> {singleArticle.body}</p>
             <h4>comments: {singleArticle.comment_count}</h4>
@@ -159,7 +146,7 @@ const SingleArticle = (props) => {
                         {/* {if ({comment.author == <loggedInUser.username/>)} */}
                         <li key={comment.comment_id}> {comment.votes} {comment.author}: {comment.body}</li>
 
-                         <button key={comment.comment_id+1} onClick={() => {setDeleteComId(comment.comment_id); deleteComById()} }>uCanDeleteThis</button>
+                        <DeleteComment article_id={singleArticle.article_id} commentId={comment.comment_id} commentAuthor={comment.author} />
                         </a>
                     )
                 })}
