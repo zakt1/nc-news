@@ -58,8 +58,23 @@ export const deleteComment = (article_id, comment_id) => {
     console.log(comment_id, '<<< api delete comment_id')
     
     return newsApi
-    .delete(`/api/articles/${article_id}/${comment_id}`)
+    .delete(`/api/articles/${article_id}/comments/${comment_id}`)
+    .then((res) => {
+        console.log(res.data, '<<< res.data api deleteComment')
+    })
 }
+
+export const patchArticleById = (article_id, incOrDec) => {
+    console.log(article_id, '<<< api PATCH article_id')
+    console.log(incOrDec, '<<< api PATCH incOrDec')
+    const incObject = { inc_votes: incOrDec }
+    
+    return newsApi
+    .patch(`/api/articles/${article_id}`, incObject)
+    .then((res) => {
+        console.log(res.data, '<< response PATCH res.Data')
+    })
+} 
 
 //html select tag 
 // bootstrap

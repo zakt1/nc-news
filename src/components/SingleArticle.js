@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { getSingleArticle, getArticleComments, postComment } from '../utils/api';
+import { getSingleArticle, getArticleComments, postComment, deleteComment } from '../utils/api';
 import { getTopics } from "../utils/api"
 //for comments post/delete..
 import { useContext } from 'react';
 import { UserContext } from '../contexts/User';
 import axios from 'axios';
 import ArticleCommentsList from './ArticleCommentsList';
+import Votes from './Votes';
 
 
 const SingleArticle = (props) => {
@@ -29,16 +30,32 @@ const SingleArticle = (props) => {
     const [singleArticle, setSingleArticle] = useState({})
 
 
-    const [deleteCom, setDeleteCom] =useState()
-
+    
+    
     ArticleCommentsList(article_id)
     // const [commentMatch, setCommentMatch] = useState(false)
-
+    
     useEffect(() => {
         getSingleArticle(article_id).then((res) => {
             setSingleArticle(res)
         })
     }, [article_id])
+    
+    const [deleteComId, setDeleteComId] =useState(0)
+    console.log(deleteComId,'<< deletecomId')
+
+    const deleteComById = (event, props) => {
+
+        console.log(deleteComId,'<< deleteComBYId deleteComId')
+        // const comId = commIdData.commentID
+        // console.log(comId,'<< deleteComId comId')
+        console.log(article_id,'<< deleteComId article_id')
+        deleteComment(article_id, deleteComId)
+        .then((res) => {
+            console.log(res, '<< deleteComById response')
+        })
+
+    }
     
     // POST comment handling -------------------------------------- ---------------------------
     
@@ -99,25 +116,6 @@ const SingleArticle = (props) => {
              return 'hi'
          }
     }
-    
-    // const handleSubmit = async() => {
-    //     const commsData = new FormData()
-    //         commsData.append("username", formValue.username)
-    //         commsData.append("body", formValue.body)
-    //         console.log(commsData, '<<handleSubmit formValue2')
-
-    //     try {
-    //         const response = await axios({
-    //             method: "post",
-    //             url: `/api/articles/${article_id}/comments`,
-    //             data: commsData,
-    //             headers: { "Content-Type": "multipart/form-data" }
-    //         })
-    //     } catch(error) {
-    //         console.log(error)
-    //     }
-    // } 
-    
 
 
     return (
@@ -157,11 +155,11 @@ const SingleArticle = (props) => {
                 {articleComments.map((comment) => {
                     return (
                         
-                        <a key={comment.comment_id}>
+                        <a key={comment.comment_id} >
                         {/* {if ({comment.author == <loggedInUser.username/>)} */}
                         <li key={comment.comment_id}> {comment.votes} {comment.author}: {comment.body}</li>
 
-                         <button key={comment.comment_id+1} onClick={() => setDeleteCom(true)}>uCanDeleteThis</button>
+                         <button key={comment.comment_id+1} onClick={() => {setDeleteComId(comment.comment_id); deleteComById()} }>uCanDeleteThis</button>
                         </a>
                     )
                 })}
