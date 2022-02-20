@@ -28,11 +28,11 @@ const ArticlesList = () => {
             <ul>
                 {articles.map((article,index) => {
                     return (
-                        <section >
+                        <section className='articleList-section'>
                         {/* <a key={article.id}>{article.votes}</a> */}
 
                         <Link key={article.article_id} to={`/api/articles/${article.article_id}`}>
-                        <li className='single-list-item'>{article.title}  - {article.author}</li> 
+                        <li>{article.title}  - {article.author}</li> 
                         </Link>
                         <Votes votes={article.votes} articleId={article.article_id} />
 

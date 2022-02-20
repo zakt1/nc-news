@@ -10,7 +10,7 @@ const Nav = () => {
     const { loggedInUser, setLoggedInUser } = useContext(UserContext)
     const logOutObj =null
     return (
-        <nav>
+        <nav className='nav-section'>
             <h4>Topics</h4>
             <TopicsList/>
             {/* <li><NavLink to ='/'>Home</NavLink></li>

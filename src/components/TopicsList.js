@@ -16,10 +16,10 @@ const TopicsList = () => {
 
     return (
         
-        <ul>
+        <ul className='topics-list'>
             {topics.map((topic)=> {
                 return (
-                    <Link key={topic.slug} to={`/api/articles?topic=${topic.slug}`}>
+                    <Link className='topic-item' key={topic.slug} to={`/api/articles?topic=${topic.slug}`}>
                         <li>{topic.slug}</li>
                         </Link>
                 )

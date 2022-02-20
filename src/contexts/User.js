@@ -21,7 +21,7 @@ export const UserProvider = (props) => {
         <UserContext.Provider value={{ loggedInUser, setLoggedInUser, isLoggedIn }}>
         {props.children}
         {console.log(props.children, '<< User.js props.children')}
-        <span>username</span>
+        <span className='username'>username</span>
         <input placeholder={placeholderUsername}></input>
 
         <button onClick={() => {<UserProvider/>}}> Login</button>

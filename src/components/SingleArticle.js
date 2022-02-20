@@ -105,15 +105,13 @@ const SingleArticle = (props) => {
 
 
     return (
-        <div>
+        <main className='article-main'>
 
-            <h1>{singleArticle.title} </h1>
-            <span className='author-span'><h2>author: {singleArticle.author}</h2></span>
-            <h2>votes:
-            <Votes votes={singleArticle.votes} articleId={singleArticle.article_id} />
-            </h2>
-            <h3 className='posted-on'>posted on {Moment(singleArticle.created_at).format("MMM DD YYYY")}</h3>
-            <p> {singleArticle.body}</p>
+            <h1 className='articleList-section'>{singleArticle.title} </h1>
+            <h4 className='author-span'>author: {singleArticle.author}</h4>
+            <h4 className='posted-on'>posted on {Moment(singleArticle.created_at).format("MMM DD YYYY")}</h4>
+            <h3>votes:<Votes votes={singleArticle.votes} articleId={singleArticle.article_id} /></h3>
+            <p className='article-body'> {singleArticle.body}</p>
             <h4 className='comment-count'>comments: {singleArticle.comment_count}</h4>
 
 
@@ -151,7 +149,7 @@ const SingleArticle = (props) => {
                 })}
             </ul>
 
-        </div>
+        </main>
     )
 
 }
