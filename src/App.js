@@ -2,6 +2,7 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Nav from './components/Nav';
+import NavHeader from './components/NavigationHeader';
 import ArticlesList from "./components/ArticlesList";
 import SingleArticle from "./components/SingleArticle";
 import ArticleCommentsList from './components/ArticleCommentsList';
@@ -9,14 +10,17 @@ import { useState } from 'react'
 import Users, { UserProvider } from "./contexts/User"
 import { UserContext} from "./contexts/User"
 
+
+
 function App() {
   
   console.log('displaying app.js')
   return (
   <BrowserRouter>
   <UserProvider>
-    <div className='app'>
-        <Nav />
+    <div className='App'>
+        <NavHeader/>
+        {/* <Nav /> */}
         {/* <ReplaceDatabase articles={articles} /> */}
           <Routes>
           <Route path="/" element={<ArticlesList/>}/>

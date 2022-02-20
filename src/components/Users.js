@@ -8,7 +8,7 @@ const jess = {username: 'jessjelly', avatar_url:'https://i.pinimg.com/originals/
 
 export const Users = () => {
     const [users, setUsers] = useState({});
-    const { setLoggedInUser } = useContext(UserContext)
+    const { setLoggedInUser, loggedInUser } = useContext(UserContext)
 
     useEffect(() => {
         setUsers(jess)

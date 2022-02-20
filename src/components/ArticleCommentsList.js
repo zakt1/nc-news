@@ -20,7 +20,6 @@ const ArticleCommentsList = (article_id) => {
                     return (
                         
                         <a key={comment.comment_id}>
-                        {/* {if ({comment.author == <loggedInUser.username/>)} */}
                         <li key={comment.comment_id}> {comment.votes} {comment.author}: {comment.body}</li>
 
                          {/* <button key={comment.comment_id+1} onClick={() => setDeleteCom(true)}>uCanDeleteThis</button> */}

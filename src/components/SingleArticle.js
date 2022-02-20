@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import Moment from 'moment'
 import { getSingleArticle, getArticleComments, postComment, deleteComment } from '../utils/api';
 import { getTopics } from "../utils/api"
 //for comments post/delete..
@@ -12,7 +13,7 @@ import DeleteComment from './DeleteComment';
 
 
 const SingleArticle = (props) => {
-    console.log(props, '<< props SingleArticle')
+    // 
 
 
     const { loggedInUser, setLoggedInUser, isLoggedIn  } = useContext(UserContext)
@@ -107,21 +108,19 @@ const SingleArticle = (props) => {
         <div>
 
             <h1>{singleArticle.title} </h1>
-            <h2>author: {singleArticle.author}</h2>
+            <span className='author-span'><h2>author: {singleArticle.author}</h2></span>
             <h2>votes:
             <Votes votes={singleArticle.votes} articleId={singleArticle.article_id} />
             </h2>
-            <h3>posted {singleArticle.created_at}</h3>
+            <h3 className='posted-on'>posted on {Moment(singleArticle.created_at).format("MMM DD YYYY")}</h3>
             <p> {singleArticle.body}</p>
-            <h4>comments: {singleArticle.comment_count}</h4>
+            <h4 className='comment-count'>comments: {singleArticle.comment_count}</h4>
 
-            <Link key="anythingRandom" to={`/api/articles/${article_id}/comments`}>
-                <button key="anythingRandom2" oncClick={ArticleCommentsList(article_id)}>GoToComments</button>
-            </Link>
 
 
             <form onSubmit={handleSubmit}>
                 <input
+                className='input-box'
                 name="body"
                 id="comment-post"
                 type="text"
@@ -138,16 +137,16 @@ const SingleArticle = (props) => {
 
             {/* <h5>{articleComments[0].author}</h5> */}
 
-            <ul>
+            <ul className='comments-list'>
                 {articleComments.map((comment) => {
                     return (
                         
-                        <a key={comment.comment_id} >
+                        <ul className='comment-item'  key={comment.comment_id} >
                         {/* {if ({comment.author == <loggedInUser.username/>)} */}
-                        <li key={comment.comment_id}> {comment.votes} {comment.author}: {comment.body}</li>
+                        <li className='single-comment'  key={comment.comment_id}> {comment.votes} {comment.author}: {comment.body}</li>
 
-                        <DeleteComment article_id={singleArticle.article_id} commentId={comment.comment_id} commentAuthor={comment.author} />
-                        </a>
+                        <DeleteComment  article_id={singleArticle.article_id} commentId={comment.comment_id} commentAuthor={comment.author} />
+                        </ul>
                     )
                 })}
             </ul>

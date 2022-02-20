@@ -1,3 +1,19 @@
+:root {
+  --red: red;
+
+ /* TODO Name correct fonts or Import */
+ --mono: monospace;
+ --sans: sans-serif;
+
+ --colour1: #64BCF0;
+ --colour2: #5EF7DB;
+ --colour3: #60E07E;
+ --colour4: #A0F75E;
+ --colour5: #EDE75A;
+
+ --error-colour: red;
+}  
+
 .App {
   text-align: center;
 }
@@ -5,7 +21,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 30vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,5 +33,114 @@
 .App-link {
   color: #61dafb;
 }
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+ }
+
+nav li:first-child {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 7rem;
+
+}
+
+main ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 1rem;
+}
+.comments-list {
+  background-color:aqua;
+  list-style-type: none;
+  padding: 1rem;
+  margin: 1rem;
+  align-items: flex-start;
+  text-align: left;
+  border-radius: 1.25rem;
+
+}
+
+.comment-item{
+  background-color:aqua;
+  padding: 0.25rem;
+  margin: 0.25rem;
+  list-style-type:none;
+
+}
+
+.single-comment{
+  background-color:rgb(136, 178, 201);
+  padding: 0.25rem;
+  margin: 0.25rem;
+  list-style-type:none;
+  border-radius: 0.4rem;
+  border: 1px solid rgb(164, 60, 238);
+
+}
+
+.input-box{
+  width: 300px;
+  height: 80px;
+  border-radius: 1.5px solid blue;
+  box-sizing: border-box;
+
+}
+
+.author-span {
+  margin: 3rem;
+  align-items: center;
+  text-align:center;
+  padding: auto;
+  
+  
+
+}
+
+.posted-on {
+  color: #030601;
+  text-align:left;
+  align-items: flex-start;
+  text-indent: 1.5rem;
+
+}
+
+.comment-count {
+  color: #030601;
+  text-align:left;
+  align-items: flex-start;
+  text-indent: 1.5rem;
+
+}
+
+.article-list{
+  text-align:left;
+  align-items: flex-start;
+  text-indent: 1.5rem;
+  
+
+}
+
+.single-list-item {
+  text-align:left;
+  align-items: flex-start;
+  text-indent: 1.5rem;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+
+}
+
 
 

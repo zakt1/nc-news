@@ -5,9 +5,37 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(242, 239, 207);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+div {
+  background-color: rgb(242, 239, 213);
+
+}
+
+span {
+  background-color: rgb(249, 203, 237);
+  margin:;
+  padding:1px;
+  align-items: flex-start;
+  text-align: left;
+  border-radius: 2%;
+
+}
+
+p {
+  background-color: rgb(249, 203, 237);
+  margin: 1rem;
+  padding:2%;
+  align-items: flex-start;
+  text-align: left;
+  border-radius: 1.25rem;
+
+}
+
+

@@ -13,6 +13,7 @@ export const UserProvider = (props) => {
         username: undefined
       };
       const isLoggedIn = loggedInUser.username !== undefined
+      const placeholderUsername = 'enter "' + loggedInUser.username +'"'
       console.log(loggedInUser, '<< User.js loggedInUser')
       console.log(isLoggedIn, '<<< isLoggedIn')
       if (isLoggedIn){
@@ -20,10 +21,13 @@ export const UserProvider = (props) => {
         <UserContext.Provider value={{ loggedInUser, setLoggedInUser, isLoggedIn }}>
         {props.children}
         {console.log(props.children, '<< User.js props.children')}
-        <span>User: {loggedInUser.username}</span>
-        <button onClick={() => {<UserProvider/>}}> Log me in</button>
+        <span>username</span>
+        <input placeholder={placeholderUsername}></input>
 
-        <button onClick={()=> setLoggedInUser(logOutObj)}> Log me out</button>
+        <button onClick={() => {<UserProvider/>}}> Login</button>
+
+        <button onClick={()=> setLoggedInUser(logOutObj)}> Log out</button>
+    
             {/* <img
             className="Nav_avatar"
             src={loggedInUser.avatar_url}
