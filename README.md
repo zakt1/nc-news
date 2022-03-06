@@ -1,3 +1,29 @@
+## nc-news (front-end)
+The front end of a reddit-style news application
+
+## Tech
+ReactJS
+
+## Features
+As a user, you can...
+
+    view a list of all articles
+    view a page for each topic with a list of related articles.
+    view an individual article.
+    view an individual article's comments.
+    vote on an article and immediately see the change.
+    post a new comment to an existing article (as a default logged in user. e.g. 'jessjelly').
+    sort articles by:
+        date created
+        author
+        votes
+    delete my own comments (as a default logged in user. e.g. 'jessjelly').
+
+## API Reference
+This app uses the following backend API (contains available endpoints): https://github.com/zakt1/be-nc-news 
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
