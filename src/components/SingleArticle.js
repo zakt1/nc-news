@@ -141,7 +141,8 @@ const SingleArticle = (props) => {
                         
                         <ul className='comment-item'  key={comment.comment_id} >
                         {/* {if ({comment.author == <loggedInUser.username/>)} */}
-                        <li className='single-comment'  key={comment.comment_id}> {comment.votes} {comment.author}: {comment.body}</li>
+                        <li className='single-comment'  key={comment.comment_id}> 
+                        {comment.votes} {comment.author}: {comment.body}</li>
 
                         <DeleteComment  article_id={singleArticle.article_id} commentId={comment.comment_id} commentAuthor={comment.author} />
                         </ul>
