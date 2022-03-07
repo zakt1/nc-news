@@ -1,5 +1,8 @@
 ## nc-news (front-end)
-The front end of a reddit-style news application
+The front end of a 'reddit-style' news application built as a first CRUD project.
+
+## Hosted Version
+The hosted version of this app: https://real-fake-newz-site.netlify.app/
 
 ## Tech
 ReactJS
@@ -21,7 +24,8 @@ As a user, you can...
     delete your own comments (as a default logged in user. e.g. 'jessjelly').
 
 ## API Reference
-This app uses the following backend API (contains available endpoints): https://github.com/zakt1/be-nc-news 
+This app uses the following backend API (contains available endpoints): https://real-fake-newz-app.herokuapp.com/api
+Backend repo can be found here: https://github.com/zakt1/be-nc-news 
 
 
 
