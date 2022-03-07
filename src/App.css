@@ -25,7 +25,7 @@
   margin: 0.20rem;
   list-style-type:none;
   border-radius: 0.4rem;
-  border: 1px solid #c4c1e0;
+
 
   width: 300px;
   height: 80px;
@@ -256,5 +256,42 @@ main ul {
 
 }
 
+.sortBy-button{
+  background-color:#ffe9e3;
+  position: absolute;
+  bottom: 70%;
+  right: 24%;
+  padding: 0.25rem;
+  margin-left: 63rem;
+  list-style-type:none;
+  border-radius: 0.4rem;
+  border: 1px solid rgb(164, 60, 238);
 
+}
+.sort-by{
+  position: absolute;
+  bottom: 68%;
+  right: 37%;
+  margin-left: 63rem;
 
+}
+
+.order-select{
+  background-color:#ffe9e3;
+  position: absolute;
+  bottom: 70%;
+  right: 2%;
+  padding: 0.25rem;
+  margin-left: 63rem;
+  list-style-type:none;
+  border-radius: 0.4rem;
+  border: 1px solid rgb(164, 60, 238);
+
+}
+
+.order-text{
+  position: absolute;
+  bottom: 68%;
+  right: 15%;
+  margin-left: 63rem;
+}

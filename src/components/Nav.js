@@ -11,7 +11,7 @@ const Nav = () => {
     const logOutObj =null
     return (
         <nav className='nav-section'>
-            <h4>Topics</h4>
+            <h2>Topics</h2>
             <TopicsList/>
             {/* <li><NavLink to ='/'>Home</NavLink></li>
 
