@@ -15,9 +15,10 @@ As a user, you can...
     post a new comment to an existing article (as a default logged in user. e.g. 'jessjelly').
     sort articles by:
         date created
+        article Name( Alphabetically)
         author
         votes
-    delete my own comments (as a default logged in user. e.g. 'jessjelly').
+    delete your own comments (as a default logged in user. e.g. 'jessjelly').
 
 ## API Reference
 This app uses the following backend API (contains available endpoints): https://github.com/zakt1/be-nc-news 

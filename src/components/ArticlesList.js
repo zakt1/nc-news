@@ -33,7 +33,7 @@ const ArticlesList = () => {
             setQuery(event.target.value)
             }}>
             <option value="created_at">Date posted</option>
-            <option value="title">Name (A-Z)</option>
+            <option value="title">article name (A-Z)</option>
             <option value="author">Author</option>
             <option value="votes">Votes</option>
                 </select>
