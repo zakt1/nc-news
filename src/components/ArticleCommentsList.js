@@ -19,12 +19,8 @@ const ArticleCommentsList = (article_id) => {
             <ul>
                 {articleComments.map((comment) => {
                     return (
-                        
-                        <a key={comment.comment_id}>
-                        <li key={comment.comment_id}> {comment.votes} {comment.author}: {comment.body}</li>
 
-                         {/* <button key={comment.comment_id+1} onClick={() => setDeleteCom(true)}>uCanDeleteThis</button> */}
-                        </a>
+                            <li key={comment.comment_id}> {comment.votes} {comment.author}: {comment.body}</li>
                     )
                 })}
             </ul>
