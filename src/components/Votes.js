@@ -5,8 +5,24 @@ const Votes = ({ votes, articleId }) => {
     const [voteChange, setVoteChange] = useState(0)
 
     const changeVotes = (incOrDec) => {
-        setVoteChange((currVotes) => currVotes + incOrDec);
-        patchArticleById(articleId, incOrDec)
+        if (voteChange === 0) {
+            setVoteChange((currVotes) => currVotes + incOrDec);
+            patchArticleById(articleId, incOrDec);    
+
+        } else if ( voteChange=== 1){
+
+            if (incOrDec ===-1){
+                setVoteChange((currVotes) => currVotes + incOrDec);
+                patchArticleById(articleId, incOrDec);  
+            }
+        } else if (voteChange=== -1) {
+            if (incOrDec ===1){
+                setVoteChange((currVotes) => currVotes + incOrDec);
+                patchArticleById(articleId, incOrDec);  
+            }
+
+        }
+  
     }
 
 

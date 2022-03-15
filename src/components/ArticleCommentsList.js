@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { getArticleComments } from '../utils/api';
+import DeleteComment from './DeleteComment';
 
 
 const ArticleCommentsList = (article_id) => {
@@ -11,7 +12,7 @@ const ArticleCommentsList = (article_id) => {
         getArticleComments(article_id).then((res) => {
             setComments(res)
         })
-    }, [article_id])
+    }, [article_id, articleComments.length])
 
     return (
         <div>

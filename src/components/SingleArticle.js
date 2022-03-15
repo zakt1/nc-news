@@ -68,7 +68,7 @@ const SingleArticle = (props) => {
             getArticleComments(article_id).then((res) => {
                 setComments(res)
             })
-        }, [article_id])
+        }, [article_id, articleComments])
         // console.log(articleComments, '<< articleComments after setState')
 
     const commData = new FormData()
@@ -141,7 +141,7 @@ const SingleArticle = (props) => {
                         
                         <ul className='comment-item'  key={comment.comment_id} >
                         {/* {if ({comment.author == <loggedInUser.username/>)} */}
-                        <li className='single-comment'  key={comment.comment_id}> 
+                        <li id={comment.comment_id} className='single-comment'  key={comment.comment_id}> 
                         {comment.votes} {comment.author}: {comment.body}</li>
 
                         <DeleteComment  article_id={singleArticle.article_id} commentId={comment.comment_id} commentAuthor={comment.author} />
