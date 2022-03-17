@@ -5,7 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(242, 239, 207);
+  background-color: #272343;
+  color: #272341;
 }
 
 code {
@@ -14,7 +15,7 @@ code {
 }
 
 div {
-  background-color: rgb(242, 239, 213);
+  background-color: #272343;
 
 }
 

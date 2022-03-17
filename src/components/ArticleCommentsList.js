@@ -6,13 +6,13 @@ import DeleteComment from './DeleteComment';
 
 const ArticleCommentsList = (article_id) => {
     // article_id=34
-    console.log(article_id, '<< ArticleCommentsList article_id')
+    // console.log(article_id, '<< ArticleCommentsList article_id')
     const [articleComments, setComments] = useState([])
     useEffect(() => {
         getArticleComments(article_id).then((res) => {
             setComments(res)
         })
-    }, [article_id, articleComments.length])
+    }, [article_id])
 
     return (
         <div>
@@ -20,7 +20,7 @@ const ArticleCommentsList = (article_id) => {
                 {articleComments.map((comment) => {
                     return (
 
-                            <li key={comment.comment_id}> {comment.votes} {comment.author}: {comment.body}</li>
+                            <li key={comment.comment_id}> {comment.author}: {comment.body}</li>
                     )
                 })}
             </ul>

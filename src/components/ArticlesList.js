@@ -26,10 +26,10 @@ const ArticlesList = () => {
 
 
     return(
-        <main className='article-list'>
-            <h1> Articles - {searchTopic}</h1>
-            <h4 className='sort-by'>Sortby:</h4>
-            <select className='sortBy-button' name="Sort by:" onChange={(event) => {
+        <main className="articles-list">
+            <h1 className='Articles-text'> Articles: {searchTopic}</h1>
+            <h4 className="sortby-item" >Sortby:</h4>
+            <select className='filter-item' name="Sort by:" onChange={(event) => {
             setQuery(event.target.value)
             }}>
             <option value="created_at">Date posted</option>
@@ -37,8 +37,8 @@ const ArticlesList = () => {
             <option value="author">Author</option>
             <option value="votes">Votes</option>
                 </select>
-            <h4 className='order-text'>Order:</h4>
-            <select className='order-select' name="Order" onChange={(event) => {
+            <h4 className="sortby-item">Order:</h4>
+            <select className="filter-item"  name="Order" onChange={(event) => {
                 setSortOrder(event.target.value)
             }}>
                 <option value="DESC">Descending</option>

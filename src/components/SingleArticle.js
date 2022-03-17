@@ -78,15 +78,19 @@ const SingleArticle = (props) => {
     
     const handleSubmit = (event, props) => {
         event.preventDefault()
+        const commentBox = document.getElementById("comment-post")
+        console.log(commentBox.value, '<<< commentBox value')
         
         // console.log(formValue, '<<handleSubmit formValue1')
         // console.log(commData, '<<handleSubmit commData')
         
         if (isLoggedIn){
             // const egId = 34
-
+            
             postComment(article_id, formValue)
             .then((res) => {
+                commentBox.value = ""
+                commentBox.placeholder = "comment posted!"
                 
                 // getSingleArticle()
                 console.log(res, '<<< postComment(article_id, formValue)')
@@ -110,7 +114,8 @@ const SingleArticle = (props) => {
             <h1 className='articleList-section'>{singleArticle.title} </h1>
             <h4 className='author-span'>author: {singleArticle.author}</h4>
             <h4 className='posted-on'>posted on {Moment(singleArticle.created_at).format("MMM DD YYYY")}</h4>
-            <h3>votes:<Votes votes={singleArticle.votes} articleId={singleArticle.article_id} /></h3>
+            <h3 className='votes-text'>votes</h3>
+            <h3 className='single-votes'><Votes votes={singleArticle.votes} articleId={singleArticle.article_id} /></h3>
             <p className='article-body'> {singleArticle.body}</p>
             <h4 className='comment-count'>comments: {singleArticle.comment_count}</h4>
 
@@ -142,7 +147,7 @@ const SingleArticle = (props) => {
                         <ul className='comment-item'  key={comment.comment_id} >
                         {/* {if ({comment.author == <loggedInUser.username/>)} */}
                         <li id={comment.comment_id} className='single-comment'  key={comment.comment_id}> 
-                        {comment.votes} {comment.author}: {comment.body}</li>
+                        {comment.author}:   {comment.body}</li>
 
                         <DeleteComment  article_id={singleArticle.article_id} commentId={comment.comment_id} commentAuthor={comment.author} />
                         </ul>

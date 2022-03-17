@@ -5,46 +5,78 @@
  --mono: monospace;
  --sans: sans-serif;
 
- --colour1: #fafafa;
- --colour2: #ffe9e3;
- --colour3: #c4c1e0;
- --colour4: #7c73e6;
+ --colour1: #272343;
+ --colour2: #ffffff;
+ --colour3: #e3f6f5;
+ --colour4: #bae8e8;
 
- --error-colour: red;
+ --error-colour: orange;
 }  
 
 .nav-section{
   background: var(--colour1);
   margin-bottom: 2rem;
+  display: flex-box;
 
 
 }
+
+.Topics-text{
+  color: var(--colour3);
+  font-size: xx-large;
+  justify-content: center;
+  margin-top: 10%;
+  margin-bottom: 2%;
+  font-weight: 00;
+  display: flex;
+
+}
+.UserContext{
+ font-size: small;
+}
 .username{
-  background-color: var(--colour2);
+  background-color: var(--colour1);
+  color: var(--colour3);
   padding: 0.20rem;
   margin: 0.20rem;
   list-style-type:none;
   border-radius: 0.4rem;
+  justify-content:center;
 
-
-  width: 300px;
-  height: 80px;
   border-radius: 1.5px solid blue;
-  box-sizing: border-box;
+}
+.inputBox-username{
+  padding: 0.20rem;
+  margin: 0.20rem;
+
+}
+.login-button{
+  margin: 0.20rem;
 }
 
 .topics-list{
   margin-bottom: 1.5rem;
+  display: flex;
   
 }
 
 .topic-item{
-  background-color: var(--colour2);
-  padding: 0.25rem;
-  margin: 0.25rem;
+  background-color: var(--colour1);
+  padding: 0.25ch;
+  margin: 0.25ch;
   list-style-type:none;
-  border-radius: 0.4rem;
-  border: 1px solid #c4c1e0;
+  border-radius: 0.25ch;
+  border: 1px solid --colour3;
+  display: flex;
+
+}
+.topicItem-slug{
+  color: var(--colour3);
+  font-size: large;
+  justify-content: flex-start;
+  font-weight: 600;
+  background-color: var(--colour1);
+
 
 }
 
@@ -65,23 +97,23 @@
 
 .App {
   text-align: center;
-  background: #fafafa;
+  background: #272343;
 }
 
 
 .App-header {
-  background-color: #ffe9e3; 
+  background-color: var(--colour3); 
   min-height: 30vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: var(--colour4);
 }
 
 .App-link {
-  color: #c4c1e0;
+  color: var(--colour4);
 }
 
 nav ul {
@@ -112,8 +144,24 @@ main ul {
   padding: 0;
   margin: 1rem;
 }
+.Homepage-title{
+  color: var(--colour2);
+  font-size: x-large;
+  justify-content: flex-start;
+  font-weight:100;
+  font-style: italic;
+
+}
+.Articles-text{
+  color: var(--colour3);
+  font-size: xx-large;
+  justify-content: flex-start;
+  font-weight: 500;
+  margin-bottom: 0;
+
+}
 .comments-list {
-  background-color:var(--colour2);
+  background-color:var(--colour4);
   list-style-type: none;
   padding: 1rem;
   margin: 1rem;
@@ -132,12 +180,29 @@ main ul {
 }
 
 .single-comment{
-  background-color:var(--colour1);
+  background-color:var(--colour2);
   padding: 0.25rem;
   margin: 0.25rem;
   list-style-type:none;
   border-radius: 0.4rem;
   border: 1px solid rgb(164, 60, 238);
+
+}
+.single-deleteBack{
+  background-color:var(--colour4);
+}
+.single-delete{
+  background-color:var(--colour1);
+  color: var(--colour3);
+  font-size: small;
+  font-weight: 800;
+  padding: 0.25rem;
+  margin: 0.25rem;
+  list-style-type:none;
+  border-radius: 0.4rem;
+  border: 1px solid var(--colour1);
+  display: inline-block;
+  text-indent: 0%;
 
 }
 
@@ -151,37 +216,74 @@ main ul {
 
 .author-span {
   margin: 1rem;
-  text-align:left;
+  text-align: left;
   padding: auto;
-  background-color:#ffe9e3;
+  background-color: var(--colour3);
+  color: var(--colour1);
   padding: 0.25rem;
   margin: 0.25rem;
   border-radius: 0.4rem;
   border: 1px solid rgb(164, 60, 238);
-  
-  
-  
+  display: inline-block;
 
 }
 
 .posted-on {
-  color: #030601;
+  color: var(--colour3);
   text-align:left;
   align-items: flex-start;
-  text-indent: 1.5rem;
+  text-indent: 0.6ch;
+  margin-top: 0.6%;
+  margin-bottom: 0%;
 
+}
+.singleArticle-votes{
+  color: var(--colour1);
+  display: inline;
+  margin-bottom: 0%;
+
+
+}
+.votes-button{
+  background-color:var(--colour1);
+  color: var(--colour3);
+  font-size: small;
+  font-weight: 800;
+
+  margin: 0.25rem;
+  list-style-type:none;
+  border-radius: 0.4rem;
+  border: 1px solid var(--colour1);
+  display: inline-block;
+  text-indent: 0%;
+}
+
+.votes-text{
+  color: var(--colour2);
+  
+  margin-bottom: 0%;
+  margin-left: 0%;
+  text-indent: 0.7%;
+}
+.single-votes{
+  display: inline-block;
+  margin-top: 0%;
+  margin-right: 3%;
+  
 }
 
 .comment-count {
-  color: #030601;
+  color: var(--colour3);
   text-align:left;
   align-items: flex-start;
-  text-indent: 1.5rem;
+  text-indent: 0.6ch;
+  margin-top: 2%;
+  margin-bottom: 1%;
 
 }
 
 .article-list{
-  background: #c4c1e0;
+  background: var(--colour2);
   text-align:left;
   align-items: flex-start;
   text-indent: 1.5rem;
@@ -196,7 +298,8 @@ main ul {
 
 
 .vote-item{
-  background: #ffe9e3;
+  background: var(--colour4);
+  color: var(--colour1);
   text-align:left;
   align-items: flex-start;
   margin-top: 0.25rem;
@@ -215,12 +318,13 @@ main ul {
 }
 
 .articleList-section{
-  background-color:#ffe9e3;
+  background-color: var(--colour4);
+  color: var(--colour1);
   padding: 0.25rem;
   margin: 0.25rem;
   list-style-type:none;
   border-radius: 0.4rem;
-  border: 1px solid rgb(164, 60, 238);
+  border: 1px solid var(--colour1);
 
 }
 
@@ -234,7 +338,7 @@ main ul {
 }
 
 .article-main{
-  background: #c4c1e0;
+  background: var(--colour1);
   text-align:left;
   align-items: flex-start;
   text-indent: 1.5rem;
@@ -242,12 +346,12 @@ main ul {
   margin: 0.25rem;
   list-style-type:none;
   border-radius: 0.4rem;
-  border: 1px solid rgb(164, 60, 238);
+  border: 1px solid var(--colour1);
 
 }
 
 .article-body{
-  background-color:#ffe9e3;
+  background-color: var(--colour3);
   padding: 0.25rem;
   margin: 0.25rem;
   list-style-type:none;
@@ -257,7 +361,7 @@ main ul {
 }
 
 .sortBy-button{
-  background-color:#ffe9e3;
+  background-color: var(--colour1);
   position: absolute;
   bottom: 70%;
   right: 24%;
@@ -277,7 +381,7 @@ main ul {
 }
 
 .order-select{
-  background-color:#ffe9e3;
+  background-color:var(--colour3);
   position: absolute;
   bottom: 70%;
   right: 2%;
@@ -294,4 +398,26 @@ main ul {
   bottom: 68%;
   right: 15%;
   margin-left: 63rem;
+}
+
+.sortby-item{
+  font-size: larger;
+  font-weight: 300;
+  color: var(--colour2);
+  display: inline-flex;
+  margin-top: 2%;
+
+
+}
+
+.filter-item{
+  background-color:var(--colour4);
+  border-radius: 0.4rem;
+  border: 1px solid var(--colour3);
+  padding: 0.38ch;
+  margin-inline-end: 1.5ch;
+  margin-inline-start: 0.5ch;
+  font-size: medium;
+  color: var(--colour1);
+  font-weight: 700;
 }

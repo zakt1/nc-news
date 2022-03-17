@@ -11,13 +11,9 @@ const Nav = () => {
     const logOutObj =null
     return (
         <nav className='nav-section'>
-            <h2>Topics</h2>
-            <TopicsList/>
-            {/* <li><NavLink to ='/'>Home</NavLink></li>
-
-            <li><NavLink to ='/api/articles'>Articles List</NavLink></li> */}
-           
             <UserProvider/>
+            <h2 className='Topics-text'>Topics</h2>
+            <TopicsList/>
         
         </nav>
     );

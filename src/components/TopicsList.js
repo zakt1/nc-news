@@ -20,7 +20,7 @@ const TopicsList = () => {
             {topics.map((topic)=> {
                 return (
                     <Link className='topic-item' key={topic.slug} to={`/api/articles?topic=${topic.slug}`}>
-                        <li>{topic.slug}</li>
+                        <li className='topicItem-slug'>{topic.slug}</li>
                         </Link>
                 )
 

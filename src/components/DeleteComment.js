@@ -31,7 +31,7 @@ const DeleteComment = ({article_id, commentId, commentAuthor}) => {
             setDeleteComId(commentId)
         }, [commentId])
 
-        console.log(deleteComId,'<< deletecomId before setState')
+        // console.log(deleteComId,'<< deletecomId before setState')
         
         const deleteComById = () => {
             // let myElement = document.getElementById(deleteComId)
@@ -53,8 +53,8 @@ const DeleteComment = ({article_id, commentId, commentAuthor}) => {
         if(commentMatch && deleteBtnText !== 'Comment Deleted!'){
             return (
                 
-                <div className='single-comment'>
-                 <button  key={deleteComId} onClick={() => deleteComById() }>{deleteBtnText}</button>
+                <div className='single-deleteBack'>
+                 <button className="single-delete" key={deleteComId} onClick={() => deleteComById() }>{deleteBtnText}</button>
              </div>
                   )
     }  else{

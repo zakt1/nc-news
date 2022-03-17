@@ -3,7 +3,7 @@ import { createContext } from 'react'
 import { useEffect, useState } from 'react';
 
 
-export const UserContext = createContext() 
+export const UserContext = createContext('jess') 
 
 export const UserProvider = (props) => {
     const [loggedInUser, setLoggedInUser] = useState({
@@ -13,20 +13,23 @@ export const UserProvider = (props) => {
         username: undefined
       };
       const isLoggedIn = loggedInUser.username !== undefined
-      let placeholderUsername = 'enter "' + loggedInUser.username +'"'
+      let placeholderUsername = "enter ' " + loggedInUser.username +" '"
       console.log(loggedInUser, '<< User.js loggedInUser')
       console.log(isLoggedIn, '<<< isLoggedIn')
       if (isLoggedIn){
+        placeholderUsername= "'" + `${loggedInUser.username}'`
       return (
         <UserContext.Provider value={{ loggedInUser, setLoggedInUser, isLoggedIn }}>
         {props.children}
+  
         {console.log(props.children, '<< User.js props.children')}
         <span className='username'>username</span>
-        <input placeholder={placeholderUsername}></input>
+        <input className='inputBox-username' placeholder={placeholderUsername}></input>
 
-        <button onClick={() => {{<UserProvider/>}}}> Login</button>
+        {/* <button className='login-button' onClick={() => {{<UserProvider/>}}}> Login</button> */}
+        
 
-        <button onClick={()=> setLoggedInUser(logOutObj)}> Log out</button>
+        <button className='logout-button' onClick={()=> setLoggedInUser(logOutObj)}> Log out</button>
     
             {/* <img
             className="Nav_avatar"
@@ -37,13 +40,13 @@ export const UserProvider = (props) => {
           
       }else{
         return (
-            <UserContext.Provider value={{ loggedInUser, setLoggedInUser, isLoggedIn }}>
+            <UserContext.Provider className='UserContext' value={{ loggedInUser, setLoggedInUser, isLoggedIn }}>
             {props.children}
             {console.log(props.children, '<< User.js props.children')}
-            <span>User: {'not logged in'}</span>
+            <span className='username'>User: {'not logged in'}</span>
             <button onClick={() => setLoggedInUser({username: 'jessjelly'})}> Log me in</button>
     
-            <button onClick={()=> setLoggedInUser(logOutObj)}> Log me out</button>
+            {/* <button onClick={()=> setLoggedInUser(logOutObj)}> Log me out</button> */}
             </UserContext.Provider>
         )
       }
